@@ -1,0 +1,214 @@
+{
+  "data": {
+    "source": "CFPB Consumer Complaint Database, product = Checking or savings account",
+    "complaints": 184902,
+    "date_range": [
+      "2017-04-24",
+      "2026-07-09"
+    ],
+    "split": {
+      "train_2017_2023": 87044,
+      "validation_2024": 29475,
+      "test_2025_2026": 68383
+    },
+    "relief_rate": {
+      "train": 0.1787,
+      "validation": 0.1527,
+      "test": 0.1095
+    }
+  },
+  "validation": {
+    "structured only": {
+      "auroc": 0.7435,
+      "pr_auc": 0.355
+    },
+    "text only": {
+      "auroc": 0.7379,
+      "pr_auc": 0.3454
+    },
+    "structured + text": {
+      "auroc": 0.7789,
+      "pr_auc": 0.408
+    }
+  },
+  "chosen_model": "structured + text",
+  "test": {
+    "auroc": 0.7468,
+    "pr_auc": 0.3026,
+    "pr_auc_random": 0.1095,
+    "brier": 0.0914,
+    "auroc_all_candidates": {
+      "structured only": 0.7148,
+      "text only": 0.7089,
+      "structured + text": 0.7468
+    },
+    "calibration_deciles": [
+      {
+        "mean_predicted": 0.0081,
+        "observed": 0.0113
+      },
+      {
+        "mean_predicted": 0.023,
+        "observed": 0.0256
+      },
+      {
+        "mean_predicted": 0.0375,
+        "observed": 0.038
+      },
+      {
+        "mean_predicted": 0.0557,
+        "observed": 0.0502
+      },
+      {
+        "mean_predicted": 0.0789,
+        "observed": 0.0778
+      },
+      {
+        "mean_predicted": 0.1101,
+        "observed": 0.101
+      },
+      {
+        "mean_predicted": 0.1561,
+        "observed": 0.1486
+      },
+      {
+        "mean_predicted": 0.2259,
+        "observed": 0.1772
+      },
+      {
+        "mean_predicted": 0.2983,
+        "observed": 0.1002
+      },
+      {
+        "mean_predicted": 0.4534,
+        "observed": 0.365
+      }
+    ]
+  },
+  "review_capacity": [
+    {
+      "review_share": 0.05,
+      "reviewed": 3419,
+      "relief_cases_found": 1609,
+      "precision": 0.4706,
+      "recall": 0.2149,
+      "lift_vs_random": 4.3
+    },
+    {
+      "review_share": 0.1,
+      "reviewed": 6838,
+      "relief_cases_found": 2496,
+      "precision": 0.365,
+      "recall": 0.3334,
+      "lift_vs_random": 3.33
+    },
+    {
+      "review_share": 0.2,
+      "reviewed": 13677,
+      "relief_cases_found": 3181,
+      "precision": 0.2326,
+      "recall": 0.4249,
+      "lift_vs_random": 2.12
+    }
+  ],
+  "test_auroc_by_company": {
+    "NAVY FEDERAL CREDIT UNION": {
+      "complaints": 8690,
+      "relief_rate": 0.0436,
+      "auroc": 0.4164
+    },
+    "JPMORGAN CHASE & CO.": {
+      "complaints": 6726,
+      "relief_rate": 0.0943,
+      "auroc": 0.8024
+    },
+    "WELLS FARGO & COMPANY": {
+      "complaints": 6462,
+      "relief_rate": 0.1306,
+      "auroc": 0.7224
+    },
+    "CAPITAL ONE FINANCIAL CORPORATION": {
+      "complaints": 6300,
+      "relief_rate": 0.0116,
+      "auroc": 0.8384
+    },
+    "BANK OF AMERICA, NATIONAL ASSOCIATION": {
+      "complaints": 5354,
+      "relief_rate": 0.378,
+      "auroc": 0.6763
+    },
+    "Chime Financial Inc": {
+      "complaints": 5306,
+      "relief_rate": 0.0854,
+      "auroc": 0.5563
+    }
+  },
+  "test_by_year": {
+    "2025": {
+      "complaints": 51390,
+      "relief_rate": 0.1011,
+      "auroc": 0.7354
+    },
+    "2026": {
+      "complaints": 16993,
+      "relief_rate": 0.1347,
+      "auroc": 0.778
+    }
+  },
+  "drivers": {
+    "text_raises_relief_odds": [
+      "00",
+      "bonus",
+      "fees",
+      "fee",
+      "34 00",
+      "promotion",
+      "direct express",
+      "atm",
+      "34",
+      "fargo opened",
+      "refunded",
+      "charging",
+      "xxxx received",
+      "coinbase",
+      "overdraft"
+    ],
+    "text_lowers_relief_odds": [
+      "bb",
+      "scammed",
+      "miles",
+      "chase closed",
+      "netspend",
+      "scam",
+      "points",
+      "deposit check",
+      "refused",
+      "settlement",
+      "locked",
+      "xxxx gave",
+      "axos",
+      "reason",
+      "albert"
+    ],
+    "structured_raises": [
+      "company_top_BANK OF AMERICA, NATIONAL ASSOCIATION",
+      "company_top_HUNTINGTON NATIONAL BANK, THE",
+      "company_top_TD BANK US HOLDING COMPANY",
+      "sub_issue_Didn't receive terms that were advertised",
+      "company_top_M&T BANK CORPORATION",
+      "company_top_AMERICAN EXPRESS COMPANY",
+      "issue_infrequent_sklearn",
+      "company_top_Paypal Holdings, Inc"
+    ],
+    "structured_lowers": [
+      "company_top_SANTANDER BANK, NATIONAL ASSOCIATION",
+      "company_top_Block, Inc.",
+      "state_AE",
+      "company_top_HSBC NORTH AMERICA HOLDINGS INC.",
+      "submitted_via_Web",
+      "company_top_Chime Financial Inc",
+      "sub_issue_Account opened as a result of fraud",
+      "issue_Incorrect information on your report"
+    ]
+  }
+}

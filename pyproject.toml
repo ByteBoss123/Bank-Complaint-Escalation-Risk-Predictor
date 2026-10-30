@@ -1,0 +1,20 @@
+[project]
+name = "complainttriage"
+version = "2.0.0"
+description = "Prioritize bank complaints likely to end in monetary relief, from intake-time information"
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.0", "numpy>=1.24", "scikit-learn>=1.4", "matplotlib>=3.7", "joblib>=1.3"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
