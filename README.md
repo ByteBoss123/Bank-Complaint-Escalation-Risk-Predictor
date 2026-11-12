@@ -78,3 +78,7 @@ Training was run in steps (`prepare`, one fit per model, then `report`) using th
 
 The earlier version had a feature script and a SAS model but had never been run on data. This version runs
 on 184,902 real complaints, and every number above comes from `results/results.json`.
+
+## License
+
+Code in this repository is released under the MIT License (see `LICENSE`). Datasets and third-party files are not covered by this license and remain under their original sources' terms.
